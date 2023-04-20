@@ -1,0 +1,17 @@
+port:
+  tcp:6379:
+    listening: true
+    ip:
+    - '0.0.0.0'
+
+command: 
+  redis-cli ping:
+    exit-status: 0
+    stdout:
+      - PONG
+    stderr: []
+    timeout: 0
+  redis-cli config:
+    exit-status: 0
+    stdout:
+      - "ERR unknown command `config`, with args beginning with:"
