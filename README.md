@@ -1,3 +1,4 @@
+## Questions 
 ### 1.
 
 a. I would choose alpine as for the image distribution since it would give less surface of attach so more security. 
@@ -31,4 +32,19 @@ To run the container :
 `docker run -p 6379:6379 redis`
 
 
+In order to improve the packaging we could provider a docker-compose but without
 
+
+## Documentation 
+
+### Building the image
+
+This image is shipped with a base configuration in it with few key defined in order to make it a bit more secure.  
+In order to build it you simply need to run : `docker build -t <repo>/redis:<tag> .`  
+In our example let say our image repo is thales.local :  
+`docker build -t thales.local/redis:6.2.12`
+
+
+### Running the image
+
+In order to run the image we simply need to run : `docker run -d --name redis -p 6379:6379 thales.local/redis:6.2.12`
