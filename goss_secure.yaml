@@ -1,0 +1,15 @@
+port:
+  tcp:6379:
+    listening: true
+    ip:
+    - '0.0.0.0'
+
+command: 
+  redis-cli ping:
+    exit-status: 0
+    stdout:
+      - "NOAUTH Authentication required."
+  redis-cli auth supersecurepass:
+    exit-status: 0
+    stdout:
+      - OK

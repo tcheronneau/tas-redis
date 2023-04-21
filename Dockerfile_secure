@@ -1,0 +1,12 @@
+FROM redis:6.2.12-alpine3.17 as redis
+
+COPY redis.conf /usr/local/etc/redis/redis.conf
+USER redis
+CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+FROM redis as redis-secure
+ARG PASS
+ENV REDIS_PASS ${PASS}
+
+CMD redis-server /usr/local/etc/redis/redis.conf --requirepass ${REDIS_PASS}
+
