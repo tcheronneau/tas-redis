@@ -29,7 +29,8 @@ I don't really understand this question because it is a docker image so the depl
 I would build the image locally or via a CI pipeline and then push it to a registry (thales.local for example).  
 And then the server / orchestrator tool that would need it would simply pull it and run it.  
 
-Since the question does not seems to expect that I would say the easiest way to deliver it would be via those sources so I would use a git repo to store those sources.   
+Since the question does not seems to expect that I would say the easiest way to deliver it would be via those sources. 
+I would use a git repo to store those sources.   
 Then on the remote server I would clone / pull it and run those commands : 
 
 To build the container : 
@@ -38,7 +39,7 @@ To build the container :
 To run the container : 
 `docker run -p 6379:6379 redis`
 
-There could be another solution that would be to simply archive this folder and copy it to the remote server and run the above command the same way.  
+There could be another solution that would be to simply archive this folder, copy it to the remote server and run the above command the same way.  
 ``` 
 tar -czvf ../tas-redis.tgz ../tas-redis
 scp ../tas-redis.tgz user@remote:/opt/
